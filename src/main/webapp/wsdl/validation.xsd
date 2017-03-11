@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           targetNamespace="http://inwonersValidation">
+
+    <xs:annotation>
+        <xs:appinfo>calcInwonersVoorWijk</xs:appinfo>
+        <xs:documentation xml:lang="nl">
+            Verkrijg het aantal inwoners van een wijk voor een bepaald jaar
+
+        </xs:documentation>
+
+
+    </xs:annotation>
+
+    <xs:simpleType name="Jaar">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Wijk">
+        <xs:restriction base="xs:normalizedString">
+            <xs:pattern value="([A-Za-z0-9 ])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

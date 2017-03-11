@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	elementFormDefault="qualified" targetNamespace="http://inwoners">
-	<xs:element name="calcInwonersVoorWijk">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="wijk" type="xs:string" />
-				<xs:element name="jaar" type="xs:int" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+           xmlns:bc="http://inwonersValidation"
+           elementFormDefault="qualified" targetNamespace="http://inwoners">
+
+    <xs:import namespace="http://inwonersValidation" schemaLocation="validation.xsd"/>
+
+    <xs:element name="calcInwonersVoorWijk">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="wijk" type="bc:Wijk"/>
+                <xs:element name="jaar" type="bc:Jaar"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>
