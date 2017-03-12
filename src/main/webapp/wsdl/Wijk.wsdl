@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://inwoners"
-                  xmlns:intf="http://inwoners" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+<wsdl:definitions xmlns:impl="http://inwoners"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   targetNamespace="http://inwoners">
-    <!--WSDL created by Apache Axis version: 1.4
-    Built on Apr 22, 2006 (06:55:48 PDT)-->
     <wsdl:types>
         <xsd:schema>
             <xsd:import namespace="http://inwoners" schemaLocation="WijkResponse.xsd"/>
             <xsd:import namespace="http://inwoners" schemaLocation="WijkRequest.xsd"/>
+            <xsd:import namespace="http://inwoners" schemaLocation="fault.xsd"/>
         </xsd:schema>
     </wsdl:types>
 
@@ -28,17 +27,21 @@
 
     </wsdl:message>
 
+    <wsdl:message name="fault">
+
+        <wsdl:part name="fault" element="impl:wijkFault"/>
+
+    </wsdl:message>
+
     <wsdl:portType name="Wijk">
 
         <wsdl:operation name="calcInwonersVoorWijk">
 
-            <wsdl:input message="impl:calcInwonersVoorWijkRequest" name="calcInwonersVoorWijkRequest">
+            <wsdl:input message="impl:calcInwonersVoorWijkRequest" name="calcInwonersVoorWijkRequest"/>
 
-            </wsdl:input>
+            <wsdl:output message="impl:calcInwonersVoorWijkResponse" name="calcInwonersVoorWijkResponse"/>
 
-            <wsdl:output message="impl:calcInwonersVoorWijkResponse" name="calcInwonersVoorWijkResponse">
-
-            </wsdl:output>
+            <wsdl:fault name="fault" message="impl:fault"/>
 
         </wsdl:operation>
 
@@ -63,6 +66,12 @@
                 <wsdlsoap:body use="literal"/>
 
             </wsdl:output>
+
+            <wsdl:fault name="fault">
+
+                <wsdlsoap:fault name="fault" use="literal"/>
+
+            </wsdl:fault>
 
         </wsdl:operation>
 
