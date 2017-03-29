@@ -11,22 +11,25 @@ public class WebServiceTester {
     private static final String PASS = "pass";
     private static final String FAIL = "fail";
 
-    private void init() {
+    public void init() {
         this.client = ClientBuilder.newClient();
     }
 
-    public static void main(String[] args) {
-        WebServiceTester tester = new WebServiceTester();
-        //initialize the tester
-        tester.init();
-        //test get user Web Service Method
-        tester.testGetWijk();
-    }
+    // public static void main(String[] args) {
+    //     WebServiceTester tester = new WebServiceTester();
+    //     //initialize the tester
+    //     tester.init();
+    //     //test get user Web Service Method
+    //     tester.testGetWijk();
+    // }
 
 
-    private void testGetWijk() {
+    public boolean testGetWijk() throws Exception {
         Wijk wijk = new WijkSoapBindingImpl();
+        // Expected
         Result r = new Result(6470);
+
+        // Actual
         Result x = client
                 .target(REST_SERVICE_URL)
                 .resolveTemplate("wijk", "Amsterdam Bijlmer Arena")
@@ -34,10 +37,7 @@ public class WebServiceTester {
                 .request(MediaType.APPLICATION_XML)
                 .get(Result.class);
         String result = FAIL;
-        if (x != null && x.getNum() == r.getNum()) {
-            result = PASS;
-        }
-        System.out.println("Test case name: testGetWijk, Result: " + result);
+        return (x != null && x.getNum() == r.getNum());
     }
 
     private class Result {

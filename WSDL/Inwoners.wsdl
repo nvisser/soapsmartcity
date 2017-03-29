@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:req="http://nl.bcome/inwonerservice/request"
+        xmlns:rsp="http://nl.bcome/inwonerservice/response"
+        xmlns:flt="http://nl.bcome/inwonerservice/fault"
+        name="InwonerService"
+        xmlns="http://nl.bcome/inwonerservice/"
+        targetNamespace="http://nl.bcome/inwonerservice/">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://nl.bcome/inwonerservice/request"
+                        schemaLocation="request.xsd"/>
+            <xsd:import namespace="http://nl.bcome/inwonerservice/response"
+                        schemaLocation="response.xsd"/>
+            <xsd:import namespace="http://nl.bcome/inwonerservice/fault"
+                        schemaLocation="fault.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="request">
+        <wsdl:part name="request" element="req:wijkRequest"/>
+    </wsdl:message>
+    <wsdl:message name="response">
+        <wsdl:part name="response" element="rsp:wijkResponse"/>
+    </wsdl:message>
+    <wsdl:message name="fault">
+        <wsdl:part name="fault" element="flt:wijkFault"/>
+    </wsdl:message>
+    <wsdl:portType name="inwonerServiceInterface">
+        <wsdl:operation name="calculateInwoners">
+            <wsdl:input message="request"/>
+            <wsdl:output message="response"/>
+            <wsdl:fault name="fault" message="fault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="inwonerServiceBinding" type="inwonerServiceInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="calculateInwoners">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="inwonerService">
+        <wsdl:port name="WS-Port" binding="inwonerServiceBinding">
+            <soap:address location="http://localhost:8080/ws-producer/ws-producer"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

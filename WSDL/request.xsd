@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:val="http://nl.bcome/inwonerservice/validation"
+           xmlns="http://nl.bcome/inwonerservice/request"
+           elementFormDefault="qualified" targetNamespace="http://nl.bcome/inwonerservice/request">
+
+    <!-- root element -->
+    <xs:element name="wijkRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="wijk" type="val:Wijk"/>
+                <xs:element name="jaar" type="val:Jaar"/>
+            </xs:sequence>
+        </xs:complexType>
+
+    </xs:element>
+</xs:schema>
