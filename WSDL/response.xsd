@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified" targetNamespace="http://nl.bcome/inwonerservice/response">
+    <element name="wijkResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="positiveInteger"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

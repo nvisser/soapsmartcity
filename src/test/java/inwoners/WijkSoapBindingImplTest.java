@@ -7,9 +7,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.junit.Assert.fail;
 
-/**
- * Created by niek on 3/11/17.
- */
 public class WijkSoapBindingImplTest {
     private Wijk wijk;
 
@@ -71,6 +68,19 @@ public class WijkSoapBindingImplTest {
         wijk.calcInwonersVoorWijk(null, 2017);
         wijk.calcInwonersVoorWijk(null, 2017);
         wijk.calcInwonersVoorWijk(null, 2017);
+    }
+
+    @Test
+    public void webServiceTest() throws Exception {
+        try {
+            WebServiceTester t = new WebServiceTester();
+            //initialize the tester
+            t.init();
+            //test get user Web Service Method
+            assertTrue(t.testGetWijk());
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
 }
