@@ -69,18 +69,4 @@ public class WijkSoapBindingImplTest {
         wijk.calcInwonersVoorWijk(null, 2017);
         wijk.calcInwonersVoorWijk(null, 2017);
     }
-
-    @Test
-    public void webServiceTest() throws Exception {
-        try {
-            WebServiceTester t = new WebServiceTester();
-            //initialize the tester
-            t.init();
-            //test get user Web Service Method
-            assertTrue(t.testGetWijk());
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
 }
