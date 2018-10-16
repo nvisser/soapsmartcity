@@ -1,9 +1,12 @@
+**WARNING** This project contains known security vulnerabilities and should not be used in production.
+
 # Soap Smart City
 * [Java sources](https://github.com/nvisser/soapsmartcity)
 * [Test sources](https://github.com/nvisser/soapsmartcity/tree/master/src/test/java/inwoners)
 * [WAR file](https://github.com/nvisser/soapsmartcity/blob/master/InwonersFinal-1.0-SNAPSHOT.war)
 * [Documentation](https://github.com/nvisser/soapsmartcity/blob/master/testplan.pdf)
 * [![Build Status](https://travis-ci.org/nvisser/soapsmartcity.svg?branch=master)](htps://travis-ci.org/nvisser/soapsmartcity) [Continuous Integration](https://travis-ci.org/nvisser/soapsmartcity)
+
 
 ## License
 Copyright 2017 Niek Visser
